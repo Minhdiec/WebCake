@@ -249,16 +249,17 @@ HTML = f"""<!doctype html>
 
 class CakePageHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path not in ("/", "/index.html"):
-            self.send_error(404, "Not found")
-            return
+        print("Request:", self.path)
 
         content = HTML.encode("utf-8")
+
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(content)))
         self.end_headers()
+
         self.wfile.write(content)
+        self.wfile.flush()
 
 
 if __name__ == "__main__":
