@@ -1,8 +1,10 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
-HOST = "127.0.0.1"
-PORT = 8001
+import os
+
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 8001))
 
 CAKE_IMAGE_URL = "https://i.pinimg.com/736x/90/47/47/904747e3be82b47fb1c2a28585f81d39.jpg"
 PINTEREST_PIN_URL = "https://www.pinterest.com/pin/6685099435977519/"
